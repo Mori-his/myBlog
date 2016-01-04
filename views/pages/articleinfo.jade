@@ -1,0 +1,22 @@
+extends ../layout
+block content
+    .container
+        .row
+            #articleInfo.col-lg-8.col-md-8.col-sm-8
+                h3 #{data.title}
+                .post-meta
+                    .meta-group
+                        i.glyphicon.glyphicon-calendar
+                        span #{moment(data.meta.updateAt).format("YYYY-MM-DD")}
+                    .meta-group
+                        i.glyphicon.glyphicon-user
+                        span 作者：#{data.author}
+                    .meta-group
+                        i.glyphicon.glyphicon-sound-stereo
+                        span 来源：#{data.source}
+                    .meta-group.pull-right
+                        i.glyphicon.glyphicon-thumbs-up
+                        span 55
+                .article-intro
+                    p
+                        | #{data.content}

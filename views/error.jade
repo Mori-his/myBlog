@@ -1,0 +1,15 @@
+doctype
+html
+    head
+        title #{title}
+        meta(charset="utf-8")
+        link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
+        // script
+               | setTimeout(function(){
+               |     history.go(-1);
+               | },3000);
+    body.bg-danger
+        .container.text-center
+            h1.text-danger #{message}
+            span.text-danger #{error}
+            // p.text-warning 网页会在3秒后返回上一页面

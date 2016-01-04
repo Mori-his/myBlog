@@ -1,0 +1,77 @@
+nav.navbar.navbar-default.navbar-fixed-top
+    .container
+        .navbar-header
+            button.navbar-toggle(type="button",data-toggle="collapse",data-target="#responsive-navbar")
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href="#")
+                strong Logo
+
+        #responsive-navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-left
+                if currentUrl=='/'
+                    li(class="active"):  a(href="/") 首页
+                else
+                    li: a(href="/") 首页
+                if currentUrl == '/articleList'
+                    li(class="active"): a(href="/articleList") 经验积累
+                else
+                    li: a(href="/articleList") 经验积累
+                li: a(href="#") 精彩瞬间
+                li: a(href="#") 关于我
+                if user
+                    if currentUrl=='/admin/userlist'
+                        li(class="active")
+                            a(href="/admin/userlist") 用户列表
+                    else
+                        li
+                            a(href="/admin/userlist") 用户列表
+            ul.nav.navbar-nav.navbar-right
+                if !user
+                    li(data-target="#signup",data-toggle="modal")
+                        a(href="#") 注册
+                    li(data-target="#signin",data-toggle="modal")
+                        a(href="#") 登入
+                else
+                    li
+                        a
+                            | 欢迎您,
+                            span.text-danger #{user.name}
+                    li
+                        a(href="/logout") 退出
+#signup.modal.fade(data-backdrop="static")
+    form(method="POST",action="/admin/signup")
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header 注册用户
+                .modal-body
+                    .form-group
+                        label(for="signupName") 用户名
+                        input#signupName.form-control(type="text",name="user[name]")
+                    .form-group
+                        label(for="signupPassword") 密码
+                        input#signupPassword.form-control(type="password",name="user[password]")
+                .modal-footer
+                    button.btn.btn-danger(type="button",data-dismiss="modal") 取消
+                    button.btn.btn-success(type="submit") 注册
+#signin.modal.fade(data-backdrop="static")
+    form(method="POST",action="/admin/signin")
+        .modal-dialog.modal-sm(role="document")
+            .modal-content
+                .modal-header 登入用户
+                .modal-body
+                    .form-group
+                        label(for="signinName") 用户名
+                        input#signinName.form-control(name="user[name]",type="test")
+                    .form-group
+                        label(for="signinPassword") 密码
+                        input#signinName.form-control(name="user[password]",type="password")
+                .modal-footer
+                    button.btn.btn-danger(type="button",data-dismiss="modal") 取消
+                    button.btn.btn-success(type="submit") 登入
+
+
+
+
+

@@ -1,0 +1,24 @@
+extends ../layout
+block content
+    .container
+        .row
+            .panel.panel-success
+                form(method="POST",action="/admin/create.share")
+                    .panel-heading
+                        .blockquote
+                            h3 #{title}
+                    .panel-body
+                        .form-group
+                            label(for="shareTitle") 标题
+                            input.form-control(type="text",id="shareTitle",name="share[title]",autocomplete="off")
+                        .form-group
+                            label(for="shareImgUrl") 图片地址
+                            input.form-control(type="text",id="shareImgUrl",name="share[imgUrl]",autocomplete="off")
+                        .form-group
+                            label(for="test1") 选择
+                            input(type="checkbox",id="test1",name="share[test1]",autocomplete="off")
+                        .form-group
+                            label(for="shareContent  ") 内容
+                            textarea.form-control(rows="8",id="shareContent",name="share[content]",autocomplete="off")
+                    .panel-footer.text-center
+                        button.btn.btn-success(type="submit",role="button") 保存

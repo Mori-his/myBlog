@@ -1,0 +1,35 @@
+extends ../layout
+block content
+   .container
+      .row
+         #articleList.col-md-8.col-sm-8.col-xs-12
+            each item in share.list
+               article.article-group
+                  header
+                     h3
+                        i.glyphicon.glyphicon-edit
+                        a(href="/articleInfo/#{item._id}") #{item.title}
+                     .post-meta
+                        .meta-group
+                           i.glyphicon.glyphicon-calendar
+                           span #{moment(item.meta.updateAt).format("YYYY-MM-DD")}
+                        .meta-group
+                           i.glyphicon.glyphicon-user
+                           span 作者：#{item.author}
+                        .meta-group
+                           i.glyphicon.glyphicon-sound-stereo
+                           span 来源：#{item.source}
+                        .meta-group.pull-right
+                           i.glyphicon.glyphicon-thumbs-up
+                           span 55
+                  .article-intro
+                     p
+                        | #{item.content}
+                        a(href="/articleInfo/#{item._id}").btn.btn-link 查看更多
+            #pagination.pull-right
+               a(href="#").btn.btn-default 1
+               a(href="#").btn.btn-default 2
+               a(href="#").btn.btn-default 3
+               a(href="#").btn.btn-default Next 》
+               a(href="#").btn.btn-default Last 》
+select(multiple='1')

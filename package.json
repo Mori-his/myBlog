@@ -1,0 +1,29 @@
+{
+  "name": "blogdemo",
+  "version": "0.0.1",
+  "description": "blog",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "mori",
+  "license": "ISC",
+  "devDependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "connect-mongo": "^0.8.2",
+    "eventr": "^0.5.1",
+    "express-session": "^1.12.1",
+    "morgan": "^1.6.1",
+    "body-parser": "*",
+    "connect-mongo": "*",
+    "express": "*",
+    "jade": "*",
+    "moment": "*",
+    "mongoose": "*",
+    "underscore": "*",
+    "morgan": "*"
+  }
+}

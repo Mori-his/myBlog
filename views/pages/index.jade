@@ -1,0 +1,78 @@
+extends ../layout
+block content
+    .container
+        .blockquote
+            h3: p
+                    span.glyphicon.glyphicon-header
+                    strong #{moments.title}
+            .row
+                each momentList in moments.list
+                    .col-md-3.col-sm-6.col-xs-6
+                        .thumbnail
+                            a(href="#"): img.img-responsive(src="#{momentList.imgUrl}")
+                            .caption
+                                h3 #{momentList.title}
+                                p #{momentList.content}
+                                p: a(href="#",role="button").btn.btn-info 查看详情
+        .blockquote
+            h3: p
+                    span.glyphicon.glyphicon-leaf
+                     strong #{share.title}
+            .panel
+                .panel-body
+                    .row
+                        .col-md-8.col-sm-8.col-xs-12
+                            each item,i in share.list
+                                .media.article-group
+                                    if item.imgUrl !== ''
+                                        .media-left
+                                            a(href="/articleInfo/#{item._id}")
+                                                img.mdeia-object(src="#{item.imgUrl}")
+                                    .media-body
+                                        h3.media-heading
+                                            a(href="/articleInfo/#{item._id}") #{item.title}
+                                        span #{item.content}
+                                    .media-bottom
+                                        span.media-list
+                                            span.glyphicon.glyphicon-time
+                                                span #{moment(item.meta.updateAt).format("YYYY-MM-DD")}
+                                        span.media-list
+                                            span.glyphicon.glyphicon-user
+                                                span 作者:#{item.author}
+                                        span.media-list
+                                            span.glyphicon.glyphicon-road
+                                                span 来源
+                                                a(href="/").text-success #{item.source}
+                                if i !== (share.list.length-1)
+                                    .line
+                        .col-md-4.col-sm-4.visible-lg.visible-md.visible-sm
+                            h4
+                                span.glyphicon.glyphicon-bold
+                                strong 最新文章
+                            .list-group
+                                a.list-group-item
+                                    h4.list-group-item-heading List group item heading
+                                    p.list-group-item-text ...
+                            .list-group
+                                a.list-group-item
+                                    h4.list-group-item-heading List group item heading
+                                    p.list-group-item-text ...
+                            .list-group
+                                a.list-group-item
+                                    h4.list-group-item-heading List group item heading
+                                    p.list-group-item-text ...
+                            h4
+                                span.glyphicon.glyphicon-fire
+                                strong 文章排行
+                            .list-group
+                                a.list-group-item
+                                    h4.list-group-item-heading List group item heading
+                                    p.list-group-item-text ...
+                            .list-group
+                                a.list-group-item
+                                    h4.list-group-item-heading List group item heading
+                                    p.list-group-item-text ...
+                            .list-group
+                                a.list-group-item
+                                    h4.list-group-item-heading List group item heading
+                                    p.list-group-item-text ...
